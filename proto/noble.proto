@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package nobel;
+
+service NobelService {
+  rpc GetLaureateCountByCategoryRange(CategoryRangeRequest) returns (CountReply);
+  rpc GetLaureateCountByMotivationKeyword(KeywordRequest) returns (CountReply);
+  rpc FindLaureateByName(NameRequest) returns (LaureateReply);
+}
+
+message CategoryRangeRequest {
+  string category = 1;
+  int32 start_year = 2;
+  int32 end_year = 3;
+}
+
+message KeywordRequest {
+  string keyword = 1;
+}
+
+message NameRequest {
+  string firstname = 1;
+  string lastname = 2;
+}
+
+message CountReply {
+  int32 count = 1;
+}
+
+message LaureateReply {
+  repeated LaureateRecord laureates = 1;
+}
+
+message LaureateRecord {
+  string firstname = 1;
+  string lastname = 2;
+  string year = 3;
+  string category = 4;
+  string motivation = 5;
+}

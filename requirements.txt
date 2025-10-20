@@ -1,0 +1,9 @@
+redis>=5.0
+requests>=2.31
+python-dotenv>=1.0
+grpcio>=1.66
+grpcio-tools>=1.66
+protobuf>=5.27
+matplotlib>=3.8
+pandas>=2.2
+numpy>=1.26
