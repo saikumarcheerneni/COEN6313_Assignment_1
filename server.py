@@ -16,10 +16,9 @@ r = redis.Redis(
 )
 
 def safe_load(doc_fields):
-    """Safely parse JSON from Redis FT.SEARCH field list"""
     if not doc_fields or len(doc_fields) < 2:
         return None
-    val = doc_fields[1]  # second element is the JSON string
+    val = doc_fields[1]  
     try:
         return json.loads(val)
     except Exception:
@@ -74,7 +73,7 @@ def serve():
     noble_pb2_grpc.add_NobelServiceServicer_to_server(NobelServiceServicer(), server)
     server.add_insecure_port('0.0.0.0:55001')
     server.start()
-    print("🚀 gRPC server running on port 55001...")
+    print("gRPC server running on port 55001...")
     server.wait_for_termination()
 
 if __name__ == "__main__":
