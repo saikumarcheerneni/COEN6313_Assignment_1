@@ -1,14 +1,14 @@
 import redis
 
 # --------------------------------------------
-#  Test connection to Redis Cloud (non-TLS)
+#  Test connection to Redis Cloud
 # --------------------------------------------
 r = redis.Redis(
     host="redis-17778.c10.us-east-1-3.ec2.redns.redis-cloud.com",
     port=17778,
     username="Saikumar",
     password="Raja@12345",
-    ssl=False  #  must be False for your free-tier database
+    ssl=False 
 )
 
 try:
